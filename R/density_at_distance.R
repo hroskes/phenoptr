@@ -8,7 +8,7 @@ if (getRversion() >= "2.15.1")
 #' classes, estimate the dependence of the density of cells of each
 #' phenotype on the distance from the boundary between the two tissue classes.
 #'
-#' The cell density estimate is computed by \code{\link[spatstat.core]{rhohat}}.
+#' The cell density estimate is computed by \code{\link[spatstat.explore]{rhohat}}.
 #' The signed distance from the boundary between the two tissue classes
 #' is used as the covariate and density is estimated separately for each
 #' phenotype. `rhohat` uses kernel density estimation to
@@ -19,7 +19,7 @@ if (getRversion() >= "2.15.1")
 #' The `rhohat` element of the returned list is a
 #' `list` containing the results of the cell density
 #' estimation for each phenotype. Each list value is a `rhohat` object,
-#' see \code{\link[spatstat.core]{methods.rhohat}}.
+#' see \code{\link[spatstat.explore]{methods.rhohat}}.
 #'
 #' Density estimates are
 #' in cells per square micron; multiply by 1,000,000 for cells per square
@@ -27,7 +27,7 @@ if (getRversion() >= "2.15.1")
 #'
 #' @section Edge correction:
 #'
-#' The \code{\link[spatstat.core]{rhohat}} function does not have any built-in
+#' The \code{\link[spatstat.explore]{rhohat}} function does not have any built-in
 #' edge correction. This may lead to incorrect density estimates
 #' because it does not account for cells at the edge of the image which may
 #' be near a tissue boundary which is not part of the image.
@@ -61,7 +61,7 @@ if (getRversion() >= "2.15.1")
 #' to exclude cells which are closer to the edge of the image than to the
 #' tissue boundary.
 #' @param pixels_per_micron Conversion factor to microns.
-#' @param ... Additional arguments passed to \code{\link[spatstat.core]{rhohat}}.
+#' @param ... Additional arguments passed to \code{\link[spatstat.explore]{rhohat}}.
 #' Default parameters are `method="ratio", smoother="kernel", bw="nrd"`.
 #' @return Returns a `list` containing four items:
 #'   \describe{
@@ -201,10 +201,10 @@ density_at_distance = function(cell_seg_path, phenotypes, positive, negative,
 
   # Distance estimation for each phenotype separately
   split_pp = split(pp)
-  all_rho = foreach::foreach(points=split_pp, .packages='spatstat.core') %dopar% {
+  all_rho = foreach::foreach(points=split_pp, .packages='spatstat.explore') %dopar% {
     local_params = params
     local_params$object = points
-    do.call(spatstat.core::rhohat, local_params)
+    do.call(spatstat.explore::rhohat, local_params)
    }
   names(all_rho) = names(split_pp)
 

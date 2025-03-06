@@ -20,7 +20,7 @@ Imports:
     rlang,
     rmarkdown,
     spatstat (>= 2.0-0),
-    spatstat.core,
+    spatstat.explore,
     spatstat.geom,
     stringr,
     tibble,

@@ -123,7 +123,7 @@ tissue boundary.</p></dd>
 <dt>pixels_per_micron</dt>
 <dd><p>Conversion factor to microns.</p></dd>
 <dt>...</dt>
-<dd><p>Additional arguments passed to <code><a href="https://rdrr.io/pkg/spatstat.core/man/rhohat.html" class="external-link">rhohat</a></code>.
+<dd><p>Additional arguments passed to <code><a href="https://rdrr.io/pkg/spatstat.explore/man/rhohat.html" class="external-link">rhohat</a></code>.
 Default parameters are <code>method="ratio", smoother="kernel", bw="nrd"</code>.</p></dd>
 </dl></div>
     <div id="value">
@@ -147,7 +147,7 @@ the tissue boundary than to the border or other regions.</p></dd>
 </dl></div>
     <div id="details">
     <h2>Details</h2>
-    <p>The cell density estimate is computed by <code><a href="https://rdrr.io/pkg/spatstat.core/man/rhohat.html" class="external-link">rhohat</a></code>.
+    <p>The cell density estimate is computed by <code><a href="https://rdrr.io/pkg/spatstat.explore/man/rhohat.html" class="external-link">rhohat</a></code>.
 The signed distance from the boundary between the two tissue classes
 is used as the covariate and density is estimated separately for each
 phenotype. <code>rhohat</code> uses kernel density estimation to
@@ -157,7 +157,7 @@ of density vs distance.</p>
 <p>The <code>rhohat</code> element of the returned list is a
 <code>list</code> containing the results of the cell density
 estimation for each phenotype. Each list value is a <code>rhohat</code> object,
-see <code><a href="https://rdrr.io/pkg/spatstat.core/man/methods.rhohat.html" class="external-link">methods.rhohat</a></code>.</p>
+see <code><a href="https://rdrr.io/pkg/spatstat.explore/man/methods.rhohat.html" class="external-link">methods.rhohat</a></code>.</p>
 <p>Density estimates are
 in cells per square micron; multiply by 1,000,000 for cells per square
 millimeter.</p>
@@ -167,7 +167,7 @@ millimeter.</p>
     
 
 
-<p>The <code><a href="https://rdrr.io/pkg/spatstat.core/man/rhohat.html" class="external-link">rhohat</a></code> function does not have any built-in
+<p>The <code><a href="https://rdrr.io/pkg/spatstat.explore/man/rhohat.html" class="external-link">rhohat</a></code> function does not have any built-in
 edge correction. This may lead to incorrect density estimates
 because it does not account for cells at the edge of the image which may
 be near a tissue boundary which is not part of the image.</p>
@@ -221,7 +221,7 @@ Chapman and Hall/CRC Press, 2015. Sections 6.6.3-6.6.4.</p>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span>     collapse</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Loading required package: rpart</span>
-<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.core 2.3-2</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> spatstat.explore 2.3-2</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Combine all the densities into a single tibble</span></span>
 <span class="r-in"><span class="co"># and filter out the extremes</span></span>
